@@ -1,6 +1,6 @@
-# cmd-mm-template
+# cmd-fsync
 
-    A template command-line multi-module project
+    A command-line tool synchronize files or directories
     
     Version 1
 

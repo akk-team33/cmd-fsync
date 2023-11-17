@@ -37,11 +37,10 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <copyright.year>2023</copyright.year>
-        <maven.plugin.validation>VERBOSE</maven.plugin.validation>
     </properties>
 
     <modules>
-        <module>fstool-main</module>
+        <module>fsync-main</module>
     </modules>
 
     <dependencyManagement>
