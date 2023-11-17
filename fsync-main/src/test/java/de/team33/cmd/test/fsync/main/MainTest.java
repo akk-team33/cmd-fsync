@@ -1,7 +1,7 @@
-package de.team33.cmd.test.fstool.main;
+package de.team33.cmd.test.fsync.main;
 
-import de.team33.cmd.fstool.main.Main;
-import de.team33.cmd.fstool.main.common.Context;
+import de.team33.cmd.fsync.main.Main;
+import de.team33.cmd.fsync.main.common.Context;
 import de.team33.patterns.io.alpha.TextIO;
 import de.team33.patterns.testing.titan.io.Redirected;
 import org.junit.jupiter.api.Test;

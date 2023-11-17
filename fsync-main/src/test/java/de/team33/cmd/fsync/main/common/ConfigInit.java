@@ -1,4 +1,4 @@
-package de.team33.cmd.fstool.main.common;
+package de.team33.cmd.fsync.main.common;
 
 import java.io.IOException;
 import java.io.OutputStream;

@@ -1,8 +1,8 @@
-package de.team33.cmd.fstool.main.business;
+package de.team33.cmd.fsync.main.business;
 
-import de.team33.cmd.fstool.main.common.BadRequestException;
-import de.team33.cmd.fstool.main.common.Config;
-import de.team33.cmd.fstool.main.common.Context;
+import de.team33.cmd.fsync.main.common.BadRequestException;
+import de.team33.cmd.fsync.main.common.Config;
+import de.team33.cmd.fsync.main.common.Context;
 import de.team33.patterns.io.alpha.TextIO;
 
 import java.nio.file.Path;

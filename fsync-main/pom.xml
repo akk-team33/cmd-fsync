@@ -73,7 +73,7 @@
                             <archive>
                                 <manifest>
                                     <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                                    <mainClass>de.team33.cmd.fstool.main.Main</mainClass>
+                                    <mainClass>de.team33.cmd.fsync.main.Main</mainClass>
                                 </manifest>
                             </archive>
                             <descriptors>
