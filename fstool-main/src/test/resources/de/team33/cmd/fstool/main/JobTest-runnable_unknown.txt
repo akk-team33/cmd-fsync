@@ -1,0 +1,18 @@
+Problem:
+
+    Unknown COMMAND: unknown
+
+Expected request scheme:
+
+    JobTest COMMAND [arg [, arg [, ...]]]
+
+Available COMMANDs (case insensitive):
+
+    ABOUT : Get basic info about this application.
+    SETUP : GET or SET the user specific setup.
+
+Type ...
+
+    JobTest COMMAND
+
+... to get more information about the specified COMMAND.

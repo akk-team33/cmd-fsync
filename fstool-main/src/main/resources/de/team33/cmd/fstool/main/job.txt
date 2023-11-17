@@ -1,0 +1,13 @@
+%1$sExpected request scheme:
+
+    %2$s COMMAND [arg [, arg [, ...]]]
+
+Available COMMANDs (case insensitive):
+
+    %3$s
+
+Type ...
+
+    %2$s COMMAND
+
+... to get more information about the specified COMMAND.

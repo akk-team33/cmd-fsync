@@ -1,0 +1,25 @@
++------------------------------------------------------------------------------
+| ${project.groupId} - ${project.artifactId} - version ${project.version}
++------------------------------------------------------------------------------
+Your request is incomplete or incorrect:
+
+    MainTest unknown
+
+Problem:
+
+    Unknown COMMAND: unknown
+
+Expected request scheme:
+
+    MainTest COMMAND [arg [, arg [, ...]]]
+
+Available COMMANDs (case insensitive):
+
+    ABOUT : Get basic info about this application.
+    SETUP : GET or SET the user specific setup.
+
+Type ...
+
+    MainTest COMMAND
+
+... to get more information about the specified COMMAND.

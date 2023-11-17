@@ -1,0 +1,17 @@
+Problem:
+
+    Unknown MODE: unknown
+
+Expected request scheme:
+
+    SetupTest setup MODE [PATH]
+
+Available MODEs (case insensitive):
+
+    GET   : get the user specific setup to stdout.
+    SET   : set the user specific setup from a given file.
+    RESET : reset the user specific setup to default values.
+
+Additional parameter (only in MODE SET):
+
+    PATH : a path to the input file.

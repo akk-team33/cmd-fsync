@@ -1,0 +1,10 @@
++------------------------------------------------------------------------------
+| MainTest about
+|
+| Product Group:   ${project.groupId}
+| Product Name:    ${project.artifactId}
+| Product Version: ${project.version}
+| Build Timestamp: ${maven.build.timestamp}
+|
+| Copyright (C) 2023 by Andreas Kluge-Kaindl, Bremen (de)
++------------------------------------------------------------------------------
