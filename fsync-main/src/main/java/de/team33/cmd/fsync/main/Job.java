@@ -1,5 +1,6 @@
 package de.team33.cmd.fsync.main;
 
+import de.team33.cmd.fsync.main.business.Comparison;
 import de.team33.cmd.fsync.main.business.Setup;
 import de.team33.cmd.fsync.main.common.BadRequestException;
 import de.team33.cmd.fsync.main.common.Context;
@@ -14,7 +15,8 @@ import java.util.stream.Stream;
 public enum Job {
 
     ABOUT(Args::about, "Get basic info about this application."),
-    SETUP(Args::setup, "GET or SET the user specific setup.");
+    SETUP(Args::setup, "GET or SET the user specific setup."),
+    COMPARE(Args::compare, "Compare two paths to determine the current synchronization status.");
 
     private static final String NEW_LINE = String.format("%n    ");
     private static final Collector<CharSequence, ?, String> JOINING = Collectors.joining(NEW_LINE);
@@ -57,12 +59,16 @@ public enum Job {
 
     private record Args(Context context, String shellCmd, String mainCmd, List<String> args) {
 
+        Runnable about() {
+            return () -> context.printf(TextIO.read(Job.class, "about.txt"), shellCmd);
+        }
+
         Runnable setup() {
             return Setup.runnable(context, shellCmd, args);
         }
 
-        Runnable about() {
-            return () -> context.printf(TextIO.read(Job.class, "about.txt"), shellCmd);
+        Runnable compare() {
+            return Comparison.runnable(context, shellCmd, args);
         }
     }
 }

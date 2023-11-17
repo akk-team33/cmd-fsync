@@ -6,6 +6,7 @@ Available COMMANDs (case insensitive):
 
     ABOUT : Get basic info about this application.
     SETUP : GET or SET the user specific setup.
+    COMPARE : Compare two paths to determine the current synchronization status.
 
 Type ...
 
