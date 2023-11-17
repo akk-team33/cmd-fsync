@@ -4,8 +4,8 @@ import de.team33.cmd.fsync.main.business.Setup;
 import de.team33.cmd.fsync.main.common.BadRequestException;
 import de.team33.cmd.fsync.main.common.Config;
 import de.team33.cmd.fsync.main.common.Context;
-import de.team33.patterns.io.alpha.TextIO;
-import de.team33.patterns.testing.io.FileIO;
+import de.team33.patterns.io.deimos.TextIO;
+import de.team33.patterns.testing.titan.io.FileIO;
 import de.team33.patterns.testing.titan.io.Redirected;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -34,7 +34,7 @@ class SetupTest implements Context {
 
     @ParameterizedTest
     @EnumSource
-    void runnable_failing(final FailCase testCase) throws Exception {
+    final void runnable_failing(final FailCase testCase) {
         try {
             final Runnable result = Setup.runnable(this, SetupTest.class.getSimpleName(), testCase.args);
             fail("expected to fail - but was " + result);
@@ -92,7 +92,7 @@ class SetupTest implements Context {
         return Config.at(configPath);
     }
 
-    @SuppressWarnings("unused")
+    @SuppressWarnings({"unused", "PackageVisibleField"})
     enum FailCase {
 
         NO_ARGS(List.of(), "SetupTest-runnable_noArgs.txt"),

@@ -3,11 +3,15 @@
 +------------------------------------------------------------------------------
 Your request is incomplete or incorrect:
 
-    MainTest
+    StubTest unknown
+
+Problem:
+
+    Unknown COMMAND: unknown
 
 Expected request scheme:
 
-    MainTest COMMAND [arg [, arg [, ...]]]
+    StubTest COMMAND [arg [, arg [, ...]]]
 
 Available COMMANDs (case insensitive):
 
@@ -16,6 +20,6 @@ Available COMMANDs (case insensitive):
 
 Type ...
 
-    MainTest COMMAND
+    StubTest COMMAND
 
 ... to get more information about the specified COMMAND.

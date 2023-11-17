@@ -2,20 +2,20 @@ package de.team33.cmd.fsync.main;
 
 import de.team33.cmd.fsync.main.common.BadRequestException;
 import de.team33.cmd.fsync.main.common.Context;
-import de.team33.patterns.io.alpha.TextIO;
+import de.team33.patterns.io.deimos.TextIO;
 
 import java.util.List;
 
-public class Main implements Context {
+public final class Stub implements Context {
 
     private final Runnable job;
 
-    private Main(final List<String> args) {
+    private Stub(final List<String> args) {
         this.job = newJob(args);
     }
 
     public static void main(final String... args) {
-        new Main(List.of(args)).run();
+        new Stub(List.of(args)).run();
     }
 
     private static String argsInLine(final List<String> args) {
@@ -24,14 +24,14 @@ public class Main implements Context {
 
     private Runnable newJob(final List<String> args) {
         try {
-            if (args.size() < 1) {
-                throw new BadRequestException(TextIO.read(Main.class, "main.txt"));
+            if (1 > args.size()) {
+                throw new BadRequestException(TextIO.read(Stub.class, "main.txt"));
             } else {
                 return Job.runnable(this, args.get(0), args.subList(1, args.size()));
             }
         } catch (final BadRequestException e) {
             return () -> printf("%s%nYour request is incomplete or incorrect:%n%n    %s%n%n%s%n%n",
-                                TextIO.read(Main.class, "head.txt"),
+                                TextIO.read(Stub.class, "head.txt"),
                                 argsInLine(args),
                                 e.getMessage());
         }

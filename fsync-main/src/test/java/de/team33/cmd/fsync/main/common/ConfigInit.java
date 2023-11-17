@@ -14,7 +14,7 @@ import static java.nio.file.StandardOpenOption.TRUNCATE_EXISTING;
 
 public class ConfigInit {
 
-    private static final Path PATH = Path.of("fstool-main/src/main/resources/de/team33/cmd/fstool/main/common/Config.properties")
+    private static final Path PATH = Path.of("fsync-main/src/main/resources/de/team33/cmd/fsync/main/common/Config.properties")
                                          .toAbsolutePath()
                                          .normalize();
 

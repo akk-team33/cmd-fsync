@@ -2,8 +2,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>de.team33.cmd.fstool</groupId>
-    <artifactId>fstool-root</artifactId>
+    <groupId>de.team33.cmd.fsync</groupId>
+    <artifactId>fsync-root</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
@@ -55,13 +55,13 @@
 
             <!-- internal -->
             <dependency>
-                <groupId>de.team33.cmd.fstool</groupId>
-                <artifactId>fstool-lib</artifactId>
+                <groupId>de.team33.cmd.fsync</groupId>
+                <artifactId>fsync-lib</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>de.team33.cmd.fstool</groupId>
-                <artifactId>fstool-testing</artifactId>
+                <groupId>de.team33.cmd.fsync</groupId>
+                <artifactId>fsync-testing</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

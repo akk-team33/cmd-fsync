@@ -3,7 +3,7 @@ package de.team33.cmd.fsync.main;
 import de.team33.cmd.fsync.main.business.Setup;
 import de.team33.cmd.fsync.main.common.BadRequestException;
 import de.team33.cmd.fsync.main.common.Context;
-import de.team33.patterns.io.alpha.TextIO;
+import de.team33.patterns.io.deimos.TextIO;
 
 import java.util.List;
 import java.util.function.Function;
@@ -20,10 +20,10 @@ public enum Job {
     private static final Collector<CharSequence, ?, String> JOINING = Collectors.joining(NEW_LINE);
     private static final String PROBLEM = "Problem:%n%n    Unknown COMMAND: %s%n%n";
 
-    private final Function<Args, Runnable> toRunnable;
+    private final Function<? super Args, ? extends Runnable> toRunnable;
     private final String excerpt;
 
-    Job(final Function<Args, Runnable> toRunnable, final String excerpt) {
+    Job(final Function<? super Args, ? extends Runnable> toRunnable, final String excerpt) {
         this.toRunnable = toRunnable;
         this.excerpt = excerpt;
     }
@@ -44,7 +44,7 @@ public enum Job {
                      .orElseThrow(() -> newBadRequestException(String.format(PROBLEM, args.mainCmd), args.shellCmd));
     }
 
-    private static String jobInfos() {
+    private static String jobInfo() {
         return Stream.of(values())
                      .map(job -> job.name() + " : " + job.excerpt)
                      .collect(JOINING);
@@ -52,7 +52,7 @@ public enum Job {
 
     private static BadRequestException newBadRequestException(final String problem, final String shellCmd) {
         return new BadRequestException(String.format(TextIO.read(Job.class, "job.txt"),
-                                                     problem, shellCmd, jobInfos()));
+                                                     problem, shellCmd, jobInfo()));
     }
 
     private record Args(Context context, String shellCmd, String mainCmd, List<String> args) {

@@ -1,7 +1,7 @@
 package de.team33.cmd.test.fsync.main.common;
 
 import de.team33.cmd.fsync.main.common.Config;
-import de.team33.patterns.testing.io.FileIO;
+import de.team33.patterns.testing.titan.io.FileIO;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;

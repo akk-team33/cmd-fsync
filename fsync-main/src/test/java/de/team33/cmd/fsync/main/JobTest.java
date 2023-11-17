@@ -2,7 +2,7 @@ package de.team33.cmd.fsync.main;
 
 import de.team33.cmd.fsync.main.common.BadRequestException;
 import de.team33.cmd.fsync.main.common.Context;
-import de.team33.patterns.io.alpha.TextIO;
+import de.team33.patterns.io.deimos.TextIO;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;

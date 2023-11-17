@@ -1,5 +1,5 @@
 +------------------------------------------------------------------------------
-| MainTest about
+| StubTest about
 |
 | Product Group:   ${project.groupId}
 | Product Name:    ${project.artifactId}
