@@ -1,0 +1,5 @@
+Comparing ...
+    left:  %1$s
+    right: %2$s
+
+    left and right are both missing
