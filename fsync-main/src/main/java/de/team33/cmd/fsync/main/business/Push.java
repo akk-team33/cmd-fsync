@@ -14,7 +14,7 @@ public class Push implements Runnable {
     private final Path relative;
     private final FileEntry leftEntry;
     private final FileEntry rightEntry;
-    private final SyncStatus status;
+    private final Pushing.Operation pushing;
 
     public Push(final Context context, final Path leftRoot, final Path rightRoot, final Path relative) {
         this.context = context;
@@ -23,39 +23,11 @@ public class Push implements Runnable {
         this.relative = relative;
         this.leftEntry = FileEntry.of(leftRoot.resolve(relative));
         this.rightEntry = FileEntry.of(rightRoot.resolve(relative));
-        this.status = SyncStatus.of(leftEntry, rightEntry);
+        this.pushing = SyncStatus.map(leftEntry, rightEntry).pushing;
     }
 
     @Override
     public final void run() {
-        if (leftEntry.exists()) {
-            runLeftExists();
-        } else {
-            runLeftMissing();
-        }
-    }
-
-    private void runLeftMissing() {
-        if (rightEntry.exists()) {
-            runRightOnly();
-        } else {
-            context.printf("%s: both files are missing -> nothing to do%n", relative);
-        }
-    }
-
-    private void runRightOnly() {
-        throw new UnsupportedOperationException("not yet implemented");
-    }
-
-    private void runLeftExists() {
-        if (rightEntry.exists()) {
-            runBothExist();
-        } else {
-            context.printf("%s: both files are missing -> nothing to do%n", relative);
-        }
-    }
-
-    private void runBothExist() {
-        throw new UnsupportedOperationException("not yet implemented");
+        pushing.accept(context, leftRoot, rightRoot, relative);
     }
 }
