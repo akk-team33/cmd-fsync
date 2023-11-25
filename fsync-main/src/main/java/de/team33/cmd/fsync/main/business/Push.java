@@ -1,7 +1,6 @@
 package de.team33.cmd.fsync.main.business;
 
 import de.team33.cmd.fsync.main.common.Context;
-import de.team33.patterns.io.alpha.FileEntry;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
