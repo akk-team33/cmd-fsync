@@ -22,6 +22,18 @@
             <groupId>de.team33.patterns</groupId>
             <artifactId>lazy-narvi</artifactId>
         </dependency>
+        <dependency>
+            <groupId>de.team33.patterns</groupId>
+            <artifactId>io-deimos</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>de.team33.patterns</groupId>
+            <artifactId>io-phobos</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>de.team33.patterns</groupId>
+            <artifactId>decision-telesto</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -32,10 +44,6 @@
             <groupId>de.team33.patterns</groupId>
             <artifactId>testing-titan</artifactId>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>de.team33.patterns</groupId>
-            <artifactId>io-deimos</artifactId>
         </dependency>
     </dependencies>
 
@@ -51,6 +59,16 @@
             <testResource>
                 <directory>${basedir}/src/test/resources</directory>
                 <filtering>true</filtering>
+                <excludes>
+                    <exclude>**/*.zip</exclude>
+                </excludes>
+            </testResource>
+            <testResource>
+                <directory>${basedir}/src/test/resources</directory>
+                <filtering>false</filtering>
+                <includes>
+                    <include>**/*.zip</include>
+                </includes>
             </testResource>
         </testResources>
         <plugins>
