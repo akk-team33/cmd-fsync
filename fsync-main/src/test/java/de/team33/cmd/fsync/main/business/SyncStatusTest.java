@@ -17,6 +17,7 @@ class SyncStatusTest {
                                               .toAbsolutePath()
                                               .normalize();
     private static final String SAME_SIZE_DATE = "same.size.date";
+    private static final String LEFT_ONLY = "left.only";
 
     private Path testPath;
 
@@ -27,16 +28,30 @@ class SyncStatusTest {
     }
 
     @Test
-    final void map() {
+    final void map_SAME_SIZE_DATE() {
         final Path left = testPath.resolve("left").resolve(SAME_SIZE_DATE);
         final Path right = testPath.resolve("right").resolve(SAME_SIZE_DATE);
+        final FileIndex index = FileIndex.of(left);
+
+        index.stream().filter(FileEntry::isRegularFile).forEach(entry -> {
+            // System.out.println(entry);
+            final Path relative = left.relativize(entry.path());
+            final SyncStatus result = SyncStatus.map(entry, FileEntry.of(right.resolve(relative)));
+            assertEquals(SyncStatus.PROBABLY_SYNC, result);
+        });
+    }
+
+    @Test
+    final void map_LEFT_ONLY() {
+        final Path left = testPath.resolve("left").resolve(LEFT_ONLY);
+        final Path right = testPath.resolve("right").resolve(LEFT_ONLY);
         final FileIndex index = FileIndex.of(left);
 
         index.stream().filter(FileEntry::isRegularFile).forEach(entry -> {
             System.out.println(entry);
             final Path relative = left.relativize(entry.path());
             final SyncStatus result = SyncStatus.map(entry, FileEntry.of(right.resolve(relative)));
-            assertEquals(SyncStatus.SAME_SIZE_DATE, result);
+            assertEquals(SyncStatus.LEFT_ONLY, result);
         });
     }
 }
