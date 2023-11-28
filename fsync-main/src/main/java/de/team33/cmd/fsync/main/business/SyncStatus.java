@@ -9,7 +9,15 @@ import static java.lang.String.format;
 
 enum SyncStatus {
 
+    /**
+     * Only the "left" file really exists (and is a regular file)
+     */
     LEFT_ONLY,
+
+    /**
+     * Only the "right" file really exists (and is a regular file)
+     */
+    RIGHT_ONLY,
 
     /**
      * Both files are regular files, with the "left" file being last modified later.
@@ -30,7 +38,7 @@ enum SyncStatus {
     PROBABLY_SYNC,
 
     /**
-     * The files are both present, but are of different types and therefore cannot be synchronized.
+     * Both files exist, but their types do not allow comparison or synchronization.
      */
     INCOMPARABLE;
 

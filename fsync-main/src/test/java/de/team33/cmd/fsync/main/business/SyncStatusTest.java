@@ -28,7 +28,7 @@ class SyncStatusTest {
     }
 
     @Test
-    final void map_SAME_SIZE_DATE() {
+    final void map_PROBABLY_SYNC() {
         final Path left = testPath.resolve("left").resolve(SAME_SIZE_DATE);
         final Path right = testPath.resolve("right").resolve(SAME_SIZE_DATE);
         final FileIndex index = FileIndex.of(left);
