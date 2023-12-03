@@ -49,6 +49,28 @@ public class StatusTrial {
         map.forEach((status, entries) -> {
             System.out.printf("%s : %d entries%n", status, entries.size());
         });
+
+        if (map.containsKey(SyncStatus.LEFT_MORE_RECENT)) {
+            if (map.containsKey(SyncStatus.RIGHT_MORE_RECENT)) {
+                System.out.printf("%nLeft and right seem out of sync.%n" +
+                                          "There are entries on both sites that are more recent than the other one!%n");
+                System.out.printf("%nRecommendation: do both ...%n%n" +
+                                          "    fsync push %1$s %2$s%n" +
+                                          "    fsync pull %1$s %2$s%n%n" +
+                                          "... to synchronize existing files and than care for missing files",
+                                  LEFT_PATH, RIGHT_PATH);
+            } else if (map.containsKey(SyncStatus.RIGHT_ONLY)) {
+                System.out.printf("%nLeft seem to be more recent.%n");
+                System.out.printf("%nRecommendation: do ...%n%n" +
+                                          "    fsync push %1$s %2$s%n%n" +
+                                          "... to synchronize existing files and than care for missing files or ...%n%n" +
+                                          "    fsync push -f %1$s %2$s%n%n" +
+                                          "... to synchronize existing and 'left only' files and remove 'right only' files",
+                                  LEFT_PATH, RIGHT_PATH);
+            } else {
+
+            }
+        }
     }
 
 }
